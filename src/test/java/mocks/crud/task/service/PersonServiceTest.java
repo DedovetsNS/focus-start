@@ -48,7 +48,7 @@ public class PersonServiceTest {
     }
 
     @Test
-    public void findAllRelatives() {
+    public void findAllRelativesTest() {
         Person testPerson1 = spy(new Person("Dima",24,new Address(1L,"Murmansk")));
         when(testPerson1.getRelatives()).thenReturn((testList));
         List<Person> result = personService.findAllRelatives(testPerson1);
@@ -57,7 +57,7 @@ public class PersonServiceTest {
     }
 
     @Test
-    public void getAddress() {
+    public void getAddressTest() {
         Person testPerson1 = spy(new Person("Dima",24,new Address(1L,"Murmansk")));
         when(testPerson1.getAddress()).thenReturn((TEST_ADDRESS));
         Address result = personService.getAddress(testPerson1);
@@ -66,32 +66,32 @@ public class PersonServiceTest {
     }
 
     @Test
-    public void save() {
+    public void saveTest() {
         personService.save(testPerson1);
         verify(personRepository, times(1)).save(testPerson1);
     }
 
     @Test
-    public void findById() {
+    public void findByIdTest() {
         personService.findById(3L);
         verify(personRepository, times(1)).findById(3L);
     }
 
     @Test
-    public void findAll() {
+    public void findAllTest() {
         personService.findAll();
         verify(personRepository, times(1)).findAll();
     }
 
     @Test
-    public void update()
+    public void updateTest()
     {
         personService.update(testPerson1);
         verify(personRepository, times(1)).update(testPerson1);
     }
 
     @Test
-    public void delete() {
+    public void deleteTest() {
         personService.delete(testPerson1);
         verify(personRepository, times(1)).delete(testPerson1);
     }

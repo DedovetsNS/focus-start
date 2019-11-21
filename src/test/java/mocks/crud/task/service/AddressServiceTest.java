@@ -29,7 +29,7 @@ public class AddressServiceTest {
     }
 
     @Test
-    public void save() {
+    public void saveTest() {
         AddressService spy = spy(new AddressService(addressRepository));
         spy.save(TEST_ADDRESS);
         spy.save(TEST_ADDRESS);
@@ -37,7 +37,7 @@ public class AddressServiceTest {
     }
 
     @Test
-    public void findById() {
+    public void findByIdTest() {
         when(addressRepository.findById(3L)).thenReturn(TEST_ADDRESS);
         Address result = addressService.findById(3L);
         assertEquals(result, TEST_ADDRESS);
@@ -45,7 +45,7 @@ public class AddressServiceTest {
     }
 
     @Test
-    public void findAll() {
+    public void findAllTest() {
         List<Address> testListAddress = new ArrayList<>();
         testListAddress.add(TEST_ADDRESS);
         testListAddress.add(TEST_ADDRESS);
@@ -57,16 +57,14 @@ public class AddressServiceTest {
     }
 
     @Test
-    public void update() {
+    public void updateTest() {
         when(addressRepository.update(TEST_ADDRESS)).thenReturn(TEST_ADDRESS);
         Address result = addressService.update(TEST_ADDRESS);
-        result = addressService.update(TEST_ADDRESS);
-        assertEquals(result, TEST_ADDRESS);
-        verify(addressRepository, times(2)).update(TEST_ADDRESS);
+        verify(addressRepository, times(1)).update(TEST_ADDRESS);
     }
 
     @Test
-    public void delete() {
+    public void deleteTest() {
         AddressService spy = spy(new AddressService(addressRepository));
         spy.delete(TEST_ADDRESS);
         verify(addressRepository, times(1)).delete(TEST_ADDRESS);
