@@ -1,8 +1,7 @@
 package collections.impl;
 
+import collections.Iterator;
 import collections.List;
-
-import java.util.Iterator;
 
 public class ArrayList<E> implements List<E> {
     @Override

@@ -1,8 +1,6 @@
 package collections;
 
-import java.util.Iterator;
+public interface Iterable<E> {
 
-public interface Iterable<T> {
-
-    Iterator<T> iterator();
+    Iterator<E> iterator();
 }
